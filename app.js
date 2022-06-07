@@ -3,8 +3,6 @@ const { inquirerMenu, pause, readInput } = require('./helper/inquirer');
 const Tasks = require('./models/tasks');
 
 const main = async () => {
-  console.log('Hello World');
-
   let option = '';
   const tasks = new Tasks();
 
@@ -16,7 +14,7 @@ const main = async () => {
         tasks.addTask(desc);
         break;
       case '2':
-        console.log(tasks._list);
+        console.log(tasks.arrayList);
         break;
     }
 
