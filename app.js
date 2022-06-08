@@ -21,7 +21,7 @@ const main = async () => {
         tasks.addTask(desc);
         break;
       case '2':
-        console.log(tasks.arrayList);
+        tasks.completedList();
         break;
     }
 
