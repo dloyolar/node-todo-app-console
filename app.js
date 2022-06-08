@@ -23,6 +23,12 @@ const main = async () => {
       case '2':
         tasks.completedList();
         break;
+      case '3':
+        tasks.listCompletedTasks();
+        break;
+      case '4':
+        tasks.listCompletedTasks(false);
+        break;
     }
 
     saveDB(tasks.arrayList);
