@@ -22,8 +22,8 @@ class Tasks {
     this._list = {};
   }
 
-  deleteTask(id='') {
-    if(this._list[id]) delete this._list[id]
+  deleteTask(id = '') {
+    if (this._list[id]) delete this._list[id];
   }
 
   loadTaskFromArray(tasks = []) {
@@ -56,9 +56,24 @@ class Tasks {
     tasks.forEach((task, i) => {
       const index = `${i + 1}`.green;
       const { desc, finishedIn } = task;
-      const status = finishedIn ? `${finishedIn}` : `${'Pendiente'}`.red;
+      const status = finishedIn ? `${finishedIn}`.green : `${'Pendiente'}`.red;
 
       console.log(`${index}. ${desc} :: ${status}`);
+    });
+  }
+
+  toggleCompleted(ids = []) {
+    ids.forEach((id) => {
+      const task = this._list[id];
+      if (!task.finishedIn) {
+        task.finishedIn = new Date().toISOString();
+      }
+    });
+
+    this.arrayList.forEach((task) => {
+      if (!ids.includes(task.id)) {
+        this._list[task.id].finishedIn = null;
+      }
     });
   }
 }
